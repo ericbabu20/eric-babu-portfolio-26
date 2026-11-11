@@ -1,6 +1,5 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import AboutSection from "@/components/section/about-section";
 import CaseStudiesSection from "@/components/section/case-studies-section";
 import CreativeSection from "@/components/section/creative-section";
 import ContactSection from "@/components/section/contact-section";
@@ -10,9 +9,8 @@ import SkillsEducationSection from "@/components/section/skills-education-sectio
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import { DATA } from "@/data/resume";
-import { getCaseStudies, getPublishedCaseStudies } from "@/lib/content";
+import { getCaseStudies } from "@/lib/content";
 import { cn } from "@/lib/utils";
-import { DownloadIcon } from "lucide-react";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -25,13 +23,11 @@ function cvIsAvailable() {
 
 export default function Page() {
   const showCv = cvIsAvailable();
-  // The hero shows the case-study button only once a study is published.
-  const hasPublishedStudies = getPublishedCaseStudies().length > 0;
   // The homepage section shows published studies, plus drafts in local preview.
   const showCaseStudies = getCaseStudies().length > 0;
 
   return (
-    <main id="main-content" className="min-h-dvh flex flex-col gap-20 relative">
+    <main id="main-content" className="relative flex min-h-dvh min-w-0 flex-col gap-20 overflow-x-hidden">
       <section id="hero" aria-labelledby="hero-name">
         <div className="mx-auto w-full max-w-3xl">
           <div className="gap-6 flex flex-col md:flex-row justify-between md:items-center">
@@ -69,23 +65,14 @@ export default function Page() {
                   >
                     Explore shipped products
                   </a>
-                  <a
-                    href={hasPublishedStudies ? "#case-studies" : "#about"}
-                    className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
-                  >
-                    {hasPublishedStudies ? "Read case studies" : "About me"}
-                  </a>
                   {showCv && (
                     <a
                       href={DATA.cvFile}
                       download
-                      className={cn(
-                        buttonVariants({ size: "lg", variant: "link" }),
-                        "gap-2 px-2"
-                      )}
+                      className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
                     >
-                      <DownloadIcon className="size-4" aria-hidden />
-                      Download CV (PDF)
+                      Resume
+                      <span className="sr-only"> (PDF download)</span>
                     </a>
                   )}
                 </div>
@@ -106,10 +93,6 @@ export default function Page() {
             </BlurFade>
           </div>
         </div>
-      </section>
-
-      <section id="about" aria-label="About" className="scroll-mt-8">
-        <AboutSection />
       </section>
 
       <section id="shipped-products" aria-label="Shipped Products" className="scroll-mt-8">

@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: `${base}/`, lastModified: now },
+    { url: `${base}/products`, lastModified: now },
     { url: `${base}/case-studies`, lastModified: now },
     { url: `${base}/photography`, lastModified: now },
     ...getPublishedProducts().map((p) => ({

@@ -1,10 +1,11 @@
-import type { CoverIconName, CoverImage } from "@/data/types";
+import { AuraPortalComposite } from "@/components/aura/illustrations";
+import type { CoverIconName, CoverIllustrationName, CoverImage } from "@/data/types";
 import { cn } from "@/lib/utils";
 import { CoverVideo } from "./cover-video";
 import {
   BarChart3Icon,
   BotMessageSquareIcon,
-  FileSearchIcon,
+  GlobeIcon,
   LayoutDashboardIcon,
   type LucideIcon,
   MapPinIcon,
@@ -21,6 +22,7 @@ import Image from "next/image";
 const ICONS: Record<CoverIconName, LucideIcon> = {
   onboarding: UserPlusIcon,
   portal: LayoutDashboardIcon,
+  website: GlobeIcon,
   assistant: BotMessageSquareIcon,
   compliance: ShieldCheckIcon,
   analytics: BarChart3Icon,
@@ -36,6 +38,8 @@ interface CoverProps {
   cover?: CoverImage;
   /** Looping thumbnail. Falls back to the image, then the neutral placeholder. */
   video?: string;
+  /** Labelled illustrative interface, used when no genuine screenshot exists. */
+  illustration?: CoverIllustrationName;
   icon: CoverIconName;
   /** Text shown on the neutral cover when there is no image. */
   label: string;
@@ -52,12 +56,17 @@ interface CoverProps {
 export function Cover({
   cover,
   video,
+  illustration,
   icon,
   label,
   className,
   priority,
   sizes = "(min-width: 1024px) 480px, (min-width: 768px) 45vw, 100vw",
 }: CoverProps) {
+  if (illustration === "aura-portal") {
+    return <AuraPortalComposite variant="card" className={className} />;
+  }
+
   if (video) {
     return (
       <div
@@ -78,7 +87,10 @@ export function Cover({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover object-top"
+          className={cn(
+            "object-cover",
+            cover.position === "center" ? "object-center" : "object-top",
+          )}
         />
       </div>
     );

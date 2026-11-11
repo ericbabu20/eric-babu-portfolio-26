@@ -33,7 +33,9 @@ const BLUR_FADE_DELAY = 0.04;
 type Params = { slug: string };
 
 export async function generateStaticParams() {
-  return getShippedProducts().map((p) => ({ slug: p.slug }));
+  return getShippedProducts()
+    .filter((p) => !p.dedicatedPage)
+    .map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -98,7 +100,7 @@ export default async function ProductPage({
 
   return (
     <article className="mx-auto w-full max-w-3xl">
-      <BackLink href="/#shipped-products">Back to Shipped Products</BackLink>
+      <BackLink href="/products">Back to Shipped Products</BackLink>
 
       <BlurFade delay={BLUR_FADE_DELAY}>
         <header className="flex flex-col gap-4">

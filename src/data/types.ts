@@ -17,12 +17,18 @@ export interface CoverImage {
   src: string;
   /** Describe what the image shows, not that it is an image. */
   alt: string;
+  /**
+   * Which part of the image stays visible when the card crops it.
+   * Defaults to the top, which suits interface screenshots.
+   */
+  position?: "top" | "center";
 }
 
 /** Icon used on the neutral cover shown when no screenshot has been supplied. */
 export type CoverIconName =
   | "onboarding"
   | "portal"
+  | "website"
   | "assistant"
   | "compliance"
   | "analytics"
@@ -32,6 +38,9 @@ export type CoverIconName =
   | "communication"
   | "ux"
   | "research";
+
+/** Illustrative covers drawn in code. They are always labelled as illustrative. */
+export type CoverIllustrationName = "aura-portal";
 
 /** A block of prose and/or bullet points. Both parts are optional. */
 export interface TextBlock {
@@ -96,10 +105,21 @@ export interface ShippedProduct {
   /** Optional extra access note, e.g. "Customer sign-in required". */
   accessNote?: string;
 
+  /** Optional one-line subtitle shown under the card title. */
+  tagline?: string;
   /** Short "My role" line for the card. */
   role: string;
-  /** Capability tags for the card. */
+  /** Capability tags for the card. Leave empty to hide them. */
   capabilities: string[];
+  /** Optional short list of highlights shown on the card. */
+  highlights?: string[];
+  /** Label for the internal details link. Defaults to "View product details". */
+  detailLabel?: string;
+  /**
+   * Set when the product has its own page under src/app/products/<slug>,
+   * so the generic product template does not also render it.
+   */
+  dedicatedPage?: boolean;
 
   /** Optional; omit to hide the external link button entirely. */
   url?: string;
@@ -107,6 +127,8 @@ export interface ShippedProduct {
   urlLabel?: string;
   /** Optional looping thumbnail under /public, e.g. "/videos/demo.mp4". */
   mediaVideo?: string;
+  /** Labelled illustrative cover, used when no genuine screenshot exists. */
+  illustration?: CoverIllustrationName;
   cover?: CoverImage;
   coverIcon: CoverIconName;
   /** Company the product was built for; shown next to the logo. */

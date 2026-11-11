@@ -1,5 +1,6 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { CaseStudyCard } from "@/components/cards/case-study-card";
+import { HorizontalShelf } from "@/components/section/horizontal-shelf";
 import { SectionHeading } from "@/components/section/section-heading";
 import { buttonVariants } from "@/components/ui/button";
 import { getCaseStudies, getFeaturedCaseStudies } from "@/lib/content";
@@ -14,7 +15,7 @@ export default function CaseStudiesSection() {
   const total = getCaseStudies().length;
 
   return (
-    <div className="flex min-h-0 flex-col gap-y-8">
+    <div className="flex w-full min-w-0 flex-col gap-y-8">
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
         <SectionHeading
           label="Case Studies"
@@ -25,15 +26,11 @@ export default function CaseStudiesSection() {
 
       {featured.length > 0 ? (
         <>
-          <ul className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2">
-            {featured.map((study, i) => (
-              <li key={study.slug} className="h-full">
-                <BlurFade delay={BLUR_FADE_DELAY * 5 + i * 0.05} className="h-full">
-                  <CaseStudyCard study={study} />
-                </BlurFade>
-              </li>
+          <HorizontalShelf label="Case studies" pageOnWheel autoplay>
+            {featured.map((study) => (
+              <CaseStudyCard key={study.slug} study={study} />
             ))}
-          </ul>
+          </HorizontalShelf>
           <div className="flex justify-center">
             <Link
               href="/case-studies"

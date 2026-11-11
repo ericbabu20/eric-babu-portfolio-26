@@ -4,7 +4,6 @@ import {
   MailIcon,
   PackageIcon,
   FileTextIcon,
-  UserIcon,
 } from "lucide-react";
 
 /**
@@ -59,7 +58,6 @@ export const DATA = {
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/#about", icon: UserIcon, label: "About" },
     {
       href: "/#shipped-products",
       icon: PackageIcon,

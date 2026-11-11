@@ -9,6 +9,15 @@ const nextConfig = {
   turbopack: {
     root: path.dirname(fileURLToPath(import.meta.url)),
   },
+  async redirects() {
+    return [
+      {
+        source: "/products/aura-spaces-ai-energy-assistant",
+        destination: "/products/aura-energy-portal",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -60,8 +60,27 @@ function visible<T extends { status: "published" | "draft" }>(items: T[]) {
   return items.filter((item) => item.status === "published" || showDrafts);
 }
 
+/**
+ * The four products shown on the homepage, in display order.
+ * Everything else is reached from "View all shipped products".
+ */
+const FEATURED_PRODUCT_SLUGS = [
+  "compliance-analyst-ai",
+  "aura-energy-portal",
+  "outfox-energy-sign-up-journey",
+  "outfox-energy-website",
+];
+
 export function getShippedProducts(): ShippedProduct[] {
   return visible(shippedProducts);
+}
+
+export function getFeaturedShippedProducts(): ShippedProduct[] {
+  const bySlug = new Map(getShippedProducts().map((product) => [product.slug, product]));
+  return FEATURED_PRODUCT_SLUGS.flatMap((slug) => {
+    const product = bySlug.get(slug);
+    return product ? [product] : [];
+  });
 }
 
 export function getShippedProduct(slug: string): ShippedProduct | undefined {
