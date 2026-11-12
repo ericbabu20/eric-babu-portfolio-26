@@ -71,8 +71,8 @@ export default function Page() {
                       download
                       className={cn(buttonVariants({ size: "lg", variant: "outline" }))}
                     >
-                      Resume
-                      <span className="sr-only"> (PDF download)</span>
+                      Download resume
+                      <span className="sr-only">, PDF</span>
                     </a>
                   )}
                 </div>
