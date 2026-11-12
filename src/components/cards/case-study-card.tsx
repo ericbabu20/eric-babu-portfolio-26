@@ -6,7 +6,6 @@ import { PROJECT_TYPE_LABELS } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon, ArrowUpRightIcon } from "lucide-react";
 import Link from "next/link";
-import { DraftBadge } from "./draft-badge";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
@@ -25,7 +24,6 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         )}
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="secondary">{PROJECT_TYPE_LABELS[study.projectType]}</Badge>
-          <DraftBadge status={study.status} />
         </div>
 
         <div className="flex flex-col gap-2">

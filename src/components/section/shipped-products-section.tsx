@@ -22,9 +22,9 @@ export default function ShippedProductsSection() {
           description="What each product does, who it serves, what I contributed and what was delivered. Professional team work and independently built products are labelled separately."
         />
       </BlurFade>
-      <ul aria-label="Shipped products" className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <ul aria-label="Shipped products" className="grid auto-rows-fr grid-cols-1 gap-4 md:grid-cols-2">
         {products.map((product) => (
-          <li key={product.slug} className="min-w-0">
+          <li key={product.slug} className="h-full min-w-0">
             <ProductCard product={product} />
           </li>
         ))}

@@ -13,18 +13,13 @@ import type {
 /* ------------------------------------------------------------------ */
 
 /**
- * Drafts are visible only in local preview:
- *   - `npm run dev` shows drafts (labelled). Set SHOW_DRAFTS=false to hide.
- *   - A local production build shows drafts only with SHOW_DRAFTS=true.
- *   - On a Vercel production deployment drafts are never shown.
+ * Drafts stay off the site, including local preview. Unfinished items are
+ * excluded from pages, the sitemap and search. Set SHOW_DRAFTS=true to
+ * preview them on a machine that is not a Vercel production deployment.
  */
 export function isDraftPreviewEnabled(): boolean {
   if (process.env.VERCEL_ENV === "production") return false;
-  if (process.env.SHOW_DRAFTS === "false") return false;
-  return (
-    process.env.NODE_ENV === "development" ||
-    process.env.SHOW_DRAFTS === "true"
-  );
+  return process.env.SHOW_DRAFTS === "true";
 }
 
 /* ------------------------------------------------------------------ */

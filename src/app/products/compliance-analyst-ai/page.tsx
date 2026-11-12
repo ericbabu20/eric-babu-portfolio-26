@@ -1,5 +1,4 @@
 import { CoverVideo } from "@/components/cards/cover-video";
-import { DraftBadge, DraftPreviewNotice } from "@/components/cards/draft-badge";
 import { BackLink } from "@/components/detail-layout";
 import BlurFade from "@/components/magicui/blur-fade";
 import { LogoBadge } from "@/components/logo-badge";
@@ -95,8 +94,7 @@ export default function ComplianceAnalystPage() {
                 </div>
               )}
               <div className="flex flex-wrap items-center gap-2">
-                <DraftBadge status={product.status} />
-                <span className="rounded-full border border-amber-600/40 bg-amber-50 px-3 py-1 text-sm font-medium text-amber-900 dark:bg-amber-950/40 dark:text-amber-100">
+                <span className="rounded-full border border-border bg-card px-3 py-1 text-sm font-medium text-foreground">
                   Under review by management
                 </span>
               </div>
@@ -133,7 +131,10 @@ export default function ComplianceAnalystPage() {
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <figure className="flex flex-col gap-3">
             <div className="relative aspect-[2/1] overflow-hidden rounded-3xl border border-border bg-[#141412] shadow-sm">
-              <CoverVideo src="/videos/outfox-compliance-analyst-demo.mp4" />
+              <CoverVideo
+                src="/videos/outfox-compliance-analyst-demo.mp4"
+                poster="/videos/outfox-compliance-analyst-demo.jpg"
+              />
             </div>
             <figcaption className="text-sm leading-relaxed text-muted-foreground">
               A short loop of the Compliance Analyst interface. The same clip plays on the product card.
@@ -156,8 +157,6 @@ export default function ComplianceAnalystPage() {
           </ul>
         </nav>
       </header>
-
-      <DraftPreviewNotice />
 
       <Section id="overview">
         <Heading id="overview" eyebrow="The product">

@@ -18,18 +18,22 @@ import type { ShippedProduct } from "./types";
 export const shippedProducts: ShippedProduct[] = [
   {
     slug: "compliance-analyst-ai",
-    // DRAFT: under management review. Not a released deployment.
-    // Change to "published" only after Eric confirms it may be public.
-    status: "draft",
+    // Public portfolio page. The tool itself is still under management review,
+    // not a released deployment, and has no public link.
+    status: "published",
     dedicatedPage: true,
     name: "Outfox Compliance Analyst",
     summary:
       "An internal AI tool to support Ofgem-sensitive document review, built around local-first retrieval-augmented generation (RAG).",
+    cardCategory: "AI · COMPLIANCE",
+    cardSummary:
+      "AI-powered compliance review tool using local-first RAG to analyse regulatory documents, identify gaps and provide cited answers.",
+    cardStatus: "Under management review",
     context: "internal",
     contextLabel: "Internal AI tool",
     delivery: "unconfirmed",
     releaseStatus: "Under review by management",
-    access: "not-confirmed",
+    access: "no-public-link",
     role: "Designed and built the tool.",
     capabilities: [
       "Local-first RAG",
@@ -42,6 +46,7 @@ export const shippedProducts: ShippedProduct[] = [
     coverIcon: "compliance",
     coverLabel: "Compliance Analyst",
     mediaVideo: "/videos/outfox-compliance-analyst-demo.mp4",
+    mediaPoster: "/videos/outfox-compliance-analyst-demo.jpg",
     company: "Outfox Energy",
     logo: "/logos/outfox-energy.png",
     overview: [
@@ -108,6 +113,10 @@ export const shippedProducts: ShippedProduct[] = [
     tagline: "Household energy data, explained in one place.",
     summary:
       "I independently designed, built and deployed a home energy portal for UK households, with an initial focus on prepayment customers. It brings electricity and gas usage, tariff information and a household-aware AI assistant into one responsive experience.",
+    cardCategory: "AI · SMART ENERGY",
+    cardSummary:
+      "Smart-home energy portal bringing electricity, gas, tariffs and AI-powered household insights into one experience.",
+    cardStatus: "Deployed · Independent product",
     context: "independent",
     contextLabel: "Independent product",
     delivery: "independent",
@@ -124,6 +133,7 @@ export const shippedProducts: ShippedProduct[] = [
     url: "https://auraspaces-smart-portal.vercel.app",
     urlLabel: "Open live portal",
     mediaVideo: "/videos/aura-spaces-card-loop-5s.mp4",
+    mediaPoster: "/videos/aura-spaces-card-loop-5s.jpg",
     coverIcon: "assistant",
     coverLabel: "Aura Energy Portal",
     overview: [
@@ -170,6 +180,10 @@ export const shippedProducts: ShippedProduct[] = [
     name: "Outfox Energy Sign-Up Journey",
     summary:
       "Digital onboarding for domestic energy customers, from getting a quote through to joining Outfox Energy.",
+    cardCategory: "ENERGY · ONBOARDING",
+    cardSummary:
+      "Simplified digital onboarding with automated meter validation, tariff discovery and a seamless customer journey.",
+    cardStatus: "Live · Team delivery",
     context: "professional",
     contextLabel: "Professional work",
     delivery: "team",
@@ -234,48 +248,49 @@ export const shippedProducts: ShippedProduct[] = [
   },
   {
     slug: "outfox-energy-website",
-    // DRAFT: placeholder copy only. Publish after Eric supplies the real content.
-    status: "draft",
+    status: "published",
     name: "Outfox Energy Website",
     summary:
-      "Placeholder summary for the Outfox Energy website. This will be replaced with the real description.",
+      "Customer-facing energy website designed for tariff exploration, customer information and seamless digital onboarding.",
+    cardCategory: "ENERGY · WEB EXPERIENCE",
+    cardSummary:
+      "Customer-facing energy website designed for tariff exploration, customer information and seamless digital onboarding.",
+    cardStatus: "Live · Team delivery",
     context: "professional",
     contextLabel: "Professional work",
     delivery: "team",
-    releaseStatus: "Content coming",
-    access: "not-confirmed",
-    role: "Placeholder. Your role on the Outfox Energy website will be added next.",
-    capabilities: ["Website", "Content coming", "Details coming"],
+    releaseStatus: "Live",
+    access: "public",
+    role: "Product work on the customer-facing Outfox Energy website, with the product team.",
+    capabilities: ["Tariff exploration", "Customer information", "Digital onboarding"],
+    cover: {
+      src: "/covers/outfox-energy-website.jpg",
+      alt: "Laptop and phone showing the Outfox Energy homepage: enter a postcode and get a quote, with the Uswitch Energy Awards 2026 and a Trustpilot score.",
+      position: "center",
+    },
     coverIcon: "website",
     coverLabel: "Outfox website",
     company: "Outfox Energy",
     logo: "/logos/outfox-energy.png",
     overview: [
-      "Placeholder. An overview of the Outfox Energy website will be added next.",
+      "Customer-facing energy website designed for tariff exploration, customer information and seamless digital onboarding.",
     ],
     customerProblem: [
-      "Placeholder. The customer problem this website addresses will be added next.",
+      "People looking for a supplier need one place to explore tariffs, read customer information and start joining online.",
     ],
     contribution: [
-      "Placeholder. Your contribution will be added next.",
+      "Product work on the customer-facing website, with the Outfox Energy product team.",
     ],
     deliveredCapabilities: [
       {
-        title: "Placeholder capability",
+        title: "Public website",
         description:
-          "A short description of what this part of the website does will be added next.",
+          "A customer-facing site for tariff exploration, customer information and the start of digital onboarding.",
       },
     ],
     outcomes: [],
     qualitativeOutcomes: [
-      "Placeholder. Outcomes will be added next.",
-    ],
-    notes: [
-      "This page is a placeholder. The real website description has not been added yet.",
-    ],
-    editorNotes: [
-      "Draft placeholder. Replace every placeholder line before publishing.",
-      "Add the live website URL when it should be shown.",
+      "The website is live. No usage figures are published here.",
     ],
   },
   {
@@ -284,6 +299,10 @@ export const shippedProducts: ShippedProduct[] = [
     name: "Outfox Energy Customer Portal",
     summary:
       "Self-service portal where customers change tariff, set up Direct Debit, pay bills and register for the Priority Services Register.",
+    cardCategory: "ENERGY · SELF-SERVICE",
+    cardSummary:
+      "Self-service energy platform for tariff changes, payments, Direct Debit management and customer support.",
+    cardStatus: "Live · Team delivery",
     context: "professional",
     contextLabel: "Professional work",
     delivery: "team",
@@ -360,6 +379,9 @@ export const shippedProducts: ShippedProduct[] = [
     name: "Home Energy Customer Portal",
     summary:
       "Placeholder summary for the Home Energy customer portal. Version 2 is coming soon.",
+    cardCategory: "ENERGY · CUSTOMER PORTAL",
+    cardSummary: "Customer portal for Home Energy. Version 2 is coming soon.",
+    cardStatus: "v2 coming soon",
     context: "professional",
     contextLabel: "Professional work",
     delivery: "team",
@@ -407,6 +429,9 @@ export const shippedProducts: ShippedProduct[] = [
     name: "Home Energy Sign-up Journey",
     summary:
       "Placeholder summary for the Home Energy sign-up journey. The real description will be added next.",
+    cardCategory: "ENERGY · ONBOARDING",
+    cardSummary: "Sign-up journey for Home Energy. A fuller description will be added next.",
+    cardStatus: "Coming soon",
     context: "professional",
     contextLabel: "Professional work",
     delivery: "team",

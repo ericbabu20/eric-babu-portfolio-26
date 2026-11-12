@@ -78,58 +78,107 @@ export const DATA = {
     {
       company: "Outfox Energy (Redfish / Zog Solutions)",
       shortName: "Outfox Energy",
+      headingName: "Outfox Energy",
       logo: "/logos/outfox-energy.png",
       location: "Leicester, UK",
       title: "Product Analyst / Product Owner",
       start: "Apr 2024",
       end: "Present",
-      highlights: [
-        "Product owner for the Outfox customer portal and mobile app, working with engineering, design, QA and operations from discovery and API requirements through to production launch.",
-        "Defined customer journeys and requirements, and collaborated with designers on prototypes.",
-        "Delivered self-service tariff changes in the customer portal.",
-        "Introduced frontend logic to automate meter-validation steps in the customer onboarding journey.",
-        "Enabled customers to set up Direct Debit and make bill payments digitally, and replaced a manual, call-based Priority Services Register (PSR) process with a digital in-app form.",
-        "Owned the product backlog and wrote PRDs, functional and technical requirements, user stories and acceptance criteria for frontend and backend teams, prioritising with RICE and value-versus-effort analysis.",
-        "Tested APIs in Postman across sandbox and production environments, and set up Google Analytics and an A/B testing framework across the website, portal and onboarding journey.",
-        "Ran Agile ceremonies in Jira and mapped billing and settlements workflows in BPMN to align stakeholders.",
+      summary:
+        "I own the customer portal, mobile app and sign-up journey for a UK domestic energy supplier, from discovery and API requirements through to launch. Most of my work is turning manual, call-based processes into self-service ones.",
+      stats: [
+        {
+          figure: "30%",
+          spoken: "30 percent less registration-team workload",
+          title: "Less registration-team workload",
+          detail: "Automated supply-point validation via the EES API",
+        },
+        {
+          figure: "15–20%",
+          spoken: "15 to 20 percent fewer tariff-renewal contacts, every month",
+          title: "Fewer tariff-renewal contacts, every month",
+          detail: "Self-service renewals in the customer portal",
+        },
+        {
+          figure: "20%",
+          spoken: "20 percent fewer Direct Debit contacts",
+          title: "Fewer Direct Debit contacts",
+          detail: "Digital Direct Debit set-up",
+        },
+        {
+          figure: "18%",
+          spoken: "18 percent better contact data quality",
+          title: "Better contact data quality",
+          detail: "Email and mobile validation at sign-up",
+        },
       ],
+      shipped: [
+        {
+          heading: "Sign-up journey",
+          items: [
+            "Supply-point validation (rejects commercial, de-energised and unmetered supply points)",
+            "Email and mobile validation",
+            "Usage-based quoting (in progress)",
+          ],
+        },
+        {
+          heading: "Customer portal",
+          items: [
+            "Tariff renewals",
+            "Direct Debit set-up, including pay-on-bill to Direct Debit",
+            "Meter-reading page, designed end to end",
+            "Change of tenancy form",
+            "Priority Services Register (PSR) form",
+            "Full UI and UX redesign",
+          ],
+        },
+        {
+          heading: "Website",
+          items: [
+            "Zendesk FAQ, chatbot and contact page",
+            "Prismic CMS for terms and conditions (no deployment needed to update)",
+            "Google Analytics and A/B testing",
+          ],
+        },
+      ],
+      nowBuilding:
+        "Now building: usage-based quoting for more accurate Direct Debits, and half-hourly consumption in the customer portal.",
     },
     {
       company: "Livspace Home Interiors",
       shortName: "Livspace",
+      headingName: "Livspace Home Interiors",
       logo: "/logos/livspace.png",
       location: "Hyderabad, India",
-      title: "Business Manager - Sales",
+      title: "Business Manager, Sales",
       start: "Jun 2023",
       end: "Apr 2024",
-      highlights: [
-        "Led a team delivering high-end residential interior projects end to end, owning the P&L and the client lifecycle from lead to handover.",
-        "Drove revenue growth through sales strategy and team performance, recruited and mentored designers and architects, and developed structured engagement processes that improved conversion and delivery efficiency.",
-      ],
+      summary:
+        "Owned the P&L and client lifecycle for high-end residential interior projects, leading designers and architects from enquiry to handover.",
     },
     {
       company: "BYJU'S (Think and Learn Pvt Ltd)",
       shortName: "BYJU'S",
+      headingName: "BYJU'S (Think and Learn Pvt Ltd)",
       logo: "/logos/byjus.png",
       location: "Bangalore, India",
       title: "Team Lead / Business Development Associate",
       start: "Nov 2021",
       end: "Apr 2023",
-      highlights: [
-        "Led, trained and managed a high-performing inside sales team, consistently exceeding targets through structured performance management, disciplined follow-up and customer engagement.",
-      ],
+      summary:
+        "Led and trained an inside-sales team that consistently exceeded targets.",
     },
     {
       company: "Rainbow Constructions",
       shortName: "Rainbow Constructions",
+      headingName: "Rainbow Constructions",
       logo: undefined as string | undefined,
       location: "Kerala, India",
       title: "Project Coordinator",
       start: "Oct 2020",
       end: "Oct 2021",
-      highlights: [
-        "Coordinated civil engineering projects with design and structural engineering teams; managed project visibility through digital marketing.",
-      ],
+      summary:
+        "Coordinated civil engineering projects with design and structural engineering teams.",
     },
   ],
 

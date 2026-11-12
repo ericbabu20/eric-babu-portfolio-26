@@ -1,5 +1,4 @@
 import { Cover } from "@/components/cards/cover";
-import { DraftBadge, DraftPreviewNotice } from "@/components/cards/draft-badge";
 import {
   BackLink,
   BulletList,
@@ -17,7 +16,6 @@ import {
   getRelatedCaseStudies,
   getShippedProduct,
   getShippedProducts,
-  isDraftPreviewEnabled,
   PROJECT_TYPE_LABELS,
 } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -115,7 +113,6 @@ export default async function ProductPage({
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{product.contextLabel}</Badge>
             <Badge variant="outline">{DELIVERY_LABELS[product.delivery]}</Badge>
-            <DraftBadge status={product.status} />
           </div>
           <h1 className="text-3xl font-semibold leading-tight tracking-tighter md:text-4xl">
             {product.name}
@@ -146,23 +143,11 @@ export default async function ProductPage({
         </header>
       </BlurFade>
 
-      <DraftPreviewNotice className="mt-6" show={product.status === "draft"} />
-
-      {isDraftPreviewEnabled() && product.editorNotes && product.editorNotes.length > 0 && (
-        <div role="note" className="mt-4 rounded-lg border border-dashed border-amber-600 px-4 py-3 text-sm text-amber-800 dark:border-amber-400 dark:text-amber-200">
-          <p className="font-semibold">Editor notes (local preview only)</p>
-          <ul className="mt-1 list-disc pl-5">
-            {product.editorNotes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
         <Cover
           cover={product.cover}
           video={product.mediaVideo}
+          videoPoster={product.mediaPoster}
           icon={product.coverIcon}
           label={product.coverLabel}
           priority

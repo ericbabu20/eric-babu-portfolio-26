@@ -270,6 +270,17 @@
 
 }
 
+/* Safari draws a play button on a muted looping thumbnail until it starts. */
+.cover-video::-webkit-media-controls,
+.cover-video::-webkit-media-controls-panel,
+.cover-video::-webkit-media-controls-play-button,
+.cover-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
 @keyframes shelf-progress {
   from {
     transform: scaleX(0);

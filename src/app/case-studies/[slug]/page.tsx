@@ -1,6 +1,5 @@
 import { Cover } from "@/components/cards/cover";
 import { CaseStudyVisual, hasCaseStudyVisual } from "@/components/case-study/visual-summary";
-import { DraftBadge, DraftPreviewNotice } from "@/components/cards/draft-badge";
 import {
   BackLink,
   BulletList,
@@ -125,7 +124,6 @@ export default async function CaseStudyPage({
           )}
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{PROJECT_TYPE_LABELS[study.projectType]}</Badge>
-            <DraftBadge status={study.status} />
           </div>
           <h1 className="text-3xl font-semibold leading-tight tracking-tighter md:text-4xl">
             {study.title}
@@ -175,22 +173,6 @@ export default async function CaseStudyPage({
           )}
         </header>
       </BlurFade>
-
-      <DraftPreviewNotice className="mt-6" show={study.status === "draft"} />
-
-      {preview && study.editorNotes && study.editorNotes.length > 0 && (
-        <div
-          role="note"
-          className="mt-4 rounded-lg border border-dashed border-amber-600 px-4 py-3 text-sm text-amber-800 dark:border-amber-400 dark:text-amber-200"
-        >
-          <p className="font-semibold">Editor notes (local preview only)</p>
-          <ul className="mt-1 list-disc pl-5">
-            {study.editorNotes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {study.cover && !visual && (
         <BlurFade delay={BLUR_FADE_DELAY * 2}>

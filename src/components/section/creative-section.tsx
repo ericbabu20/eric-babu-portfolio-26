@@ -17,7 +17,8 @@ const FALLBACK =
   "Photography and filmmaking are part of my creative practice, giving me another way to explore composition, detail and visual storytelling.";
 
 export default function CreativeSection() {
-  const preview = creativeWork.photos.slice(0, PREVIEW_COUNT);
+  const featured = creativeWork.photos.filter((photo) => photo.featured);
+  const preview = (featured.length > 0 ? featured : creativeWork.photos).slice(0, PREVIEW_COUNT);
   const { portfolioUrl } = creativeWork;
   // The "selection of my work" intro only appears when work is shown.
   const hasWork = creativeWork.photos.length > 0 || Boolean(creativeWork.film);
@@ -37,14 +38,14 @@ export default function CreativeSection() {
         <BlurFade delay={BLUR_FADE_DELAY * 5}>
           <ul className="grid grid-cols-2 items-start gap-3 sm:grid-cols-3">
             {preview.map((photo) => (
-              <li key={photo.src}>
+              <li key={photo.src} className="overflow-hidden rounded-xl border border-border">
                 <Image
                   src={photo.src}
                   alt={photo.alt}
                   width={photo.width}
                   height={photo.height}
                   sizes="(min-width: 768px) 240px, 50vw"
-                  className="h-auto w-full rounded-xl border border-border"
+                  className="aspect-[3/2] h-auto w-full object-cover"
                 />
               </li>
             ))}

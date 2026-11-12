@@ -1,13 +1,22 @@
 import { BackLink } from "@/components/detail-layout";
 import BlurFade from "@/components/magicui/blur-fade";
 import { buttonVariants } from "@/components/ui/button";
-import { creativeWork, MAX_CREATIVE_PHOTOS } from "@/data/creative";
+import { creativeWork, type CreativePhoto } from "@/data/creative";
 import { cn } from "@/lib/utils";
 import { ArrowUpRightIcon, ImageIcon } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 
 const BLUR_FADE_DELAY = 0.04;
+const EMPTY_FRAMES = 6;
+
+const SPAN_CLASS: Record<NonNullable<CreativePhoto["span"]>, string> = {
+  4: "md:col-span-4",
+  5: "md:col-span-5",
+  6: "md:col-span-6",
+  7: "md:col-span-7",
+  12: "md:col-span-12",
+};
 
 const description =
   "Photography and film by Eric Babu, a Product Owner: a selection of work behind the camera, exploring people, places and the stories within everyday moments.";
@@ -21,13 +30,12 @@ export const metadata: Metadata = {
 };
 
 export default function PhotographyPage() {
-  const photos = creativeWork.photos.slice(0, MAX_CREATIVE_PHOTOS);
-  const emptySlots = Math.max(0, MAX_CREATIVE_PHOTOS - photos.length);
+  const photos = creativeWork.photos;
   const { film, portfolioUrl } = creativeWork;
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
-      <div>
+    <div className="flex w-full flex-col gap-8">
+      <div className="max-w-3xl">
         <BackLink href="/#creative">Back to home</BackLink>
         <BlurFade delay={BLUR_FADE_DELAY}>
           <h1 className="mb-2 text-3xl font-semibold tracking-tighter md:text-4xl">
@@ -41,32 +49,44 @@ export default function PhotographyPage() {
       </div>
 
       <BlurFade delay={BLUR_FADE_DELAY * 2}>
-        <ul className="grid grid-cols-2 items-start gap-3 sm:grid-cols-3">
-          {photos.map((photo) => (
-            <li key={photo.src}>
-              <Image
-                src={photo.src}
-                alt={photo.alt}
-                width={photo.width}
-                height={photo.height}
-                sizes="(min-width: 768px) 240px, 50vw"
-                className="h-auto w-full rounded-xl border border-border"
-              />
-            </li>
-          ))}
-          {Array.from({ length: emptySlots }, (_, i) => {
-            const number = photos.length + i + 1;
-            return (
-              <li key={`slot-${number}`}>
+        {photos.length > 0 ? (
+          <ul className="grid grid-cols-1 items-start gap-4 md:grid-cols-12 md:gap-5">
+            {photos.map((photo, index) => (
+              <li
+                key={photo.src}
+                className={cn("min-w-0", SPAN_CLASS[photo.span ?? 6])}
+              >
+                <figure className="overflow-hidden rounded-xl border border-border bg-muted">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    priority={index === 0}
+                    sizes={
+                      photo.span === 12
+                        ? "(min-width: 768px) 960px, 100vw"
+                        : "(min-width: 768px) 50vw, 100vw"
+                    }
+                    className="h-auto w-full"
+                  />
+                </figure>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <ul className="grid grid-cols-2 items-start gap-3 sm:grid-cols-3">
+            {Array.from({ length: EMPTY_FRAMES }, (_, i) => (
+              <li key={`slot-${i + 1}`}>
                 <div className="flex aspect-[3/2] w-full flex-col items-center justify-center gap-1.5 rounded-xl border border-dashed border-border bg-muted/40 text-muted-foreground">
                   <ImageIcon className="size-5" aria-hidden />
-                  <p className="text-xs font-medium">Photograph {number}</p>
+                  <p className="text-xs font-medium">Photograph {i + 1}</p>
                   <p className="text-[11px]">Coming soon</p>
                 </div>
               </li>
-            );
-          })}
-        </ul>
+            ))}
+          </ul>
+        )}
       </BlurFade>
 
       {film?.kind === "file" && (

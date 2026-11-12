@@ -1,5 +1,4 @@
 import { CaseStudyCard } from "@/components/cards/case-study-card";
-import { DraftPreviewNotice } from "@/components/cards/draft-badge";
 import { BackLink } from "@/components/detail-layout";
 import BlurFade from "@/components/magicui/blur-fade";
 import { getCaseStudies } from "@/lib/content";
@@ -36,7 +35,6 @@ export default function CaseStudiesPage() {
             measured results.
           </p>
         </BlurFade>
-        <DraftPreviewNotice className="mt-6" show={studies.some((s) => s.status === "draft")} />
       </div>
 
       {studies.length > 0 ? (

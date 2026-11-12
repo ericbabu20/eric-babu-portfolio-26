@@ -20,9 +20,9 @@ npm run dev
 
 Then open <http://localhost:3000>.
 
-`npm run dev` shows **draft** products and case studies, each clearly labelled
-"Draft preview". Drafts never appear in a public build, the sitemap or on a
-Vercel production deployment.
+Unfinished items marked draft stay off the site, including local preview.
+Set `SHOW_DRAFTS=true` to see them on a machine that is not a Vercel
+production deployment. They never appear in the sitemap or on Vercel production.
 
 Useful checks:
 

@@ -93,8 +93,20 @@ export interface ShippedProduct {
   slug: string;
   status: PublicationStatus;
   name: string;
-  /** One or two sentences for the card. */
+  /** One or two sentences. Used on the product page and as card fallback. */
   summary: string;
+  /**
+   * Short card description, about 15–22 words. The product page keeps
+   * `summary`, so the card can stay brief without shortening the page.
+   */
+  cardSummary?: string;
+  /** One small category label for the card, e.g. "AI · COMPLIANCE". */
+  cardCategory?: string;
+  /**
+   * Small card badge. Set only when the product record already supports
+   * the claim, such as live, independent or not yet released.
+   */
+  cardStatus?: string;
 
   context: ProductContext;
   contextLabel: string;
@@ -127,6 +139,8 @@ export interface ShippedProduct {
   urlLabel?: string;
   /** Optional looping thumbnail under /public, e.g. "/videos/demo.mp4". */
   mediaVideo?: string;
+  /** Still frame for the video, shown until it plays, e.g. "/videos/demo.jpg". */
+  mediaPoster?: string;
   /** Labelled illustrative cover, used when no genuine screenshot exists. */
   illustration?: CoverIllustrationName;
   cover?: CoverImage;

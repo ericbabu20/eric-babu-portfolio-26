@@ -353,7 +353,10 @@ export default function AuraEnergyPortalPage() {
               className="relative aspect-[2/1] overflow-hidden rounded-3xl border shadow-sm"
               style={{ backgroundColor: "#141412", borderColor: AURA.line }}
             >
-              <CoverVideo src="/videos/aura-spaces-card-loop-5s.mp4" />
+              <CoverVideo
+                src="/videos/aura-spaces-card-loop-5s.mp4"
+                poster="/videos/aura-spaces-card-loop-5s.jpg"
+              />
             </div>
             <figcaption className="text-sm leading-relaxed text-muted-foreground">
               A short loop of the Aura portal. The same clip plays on the product card.

@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "twitter-x-aarrr-funnel-analysis",
-    status: "draft",
+    status: "published",
     title: "Twitter/X: AARRR Funnel Analysis",
     summary:
       "An AARRR funnel analysis of X, finding that its growth problem is habit rather than awareness, with four epics prioritised using RICE.",
@@ -148,7 +148,7 @@ export const caseStudies: CaseStudy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "zomato-engagement-retention-strategy",
-    status: "draft",
+    status: "published",
     title: "Zomato: Engagement and Retention Strategy",
     summary:
       "A CY2026 product strategy for Zomato in Tier-1 India: OKRs, funnel and cohort analysis, and a North Star metric aimed at building an everyday ordering habit.",
@@ -300,7 +300,7 @@ export const caseStudies: CaseStudy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "vitafit-momentum-prd",
-    status: "draft",
+    status: "published",
     title: "VitaFit Momentum: A PRD for Rewards and Community Challenges",
     summary:
       "A product requirements document for a feature set intended to lift repeat usage on a fitness platform, with an A/B experiment plan and a clickable prototype.",
@@ -492,11 +492,11 @@ export const caseStudies: CaseStudy[] = [
   /* ------------------------------------------------------------------ */
   {
     slug: "driving-adoption-jtbd-first-principles",
-    status: "draft",
+    status: "published",
     title: "Driving Adoption Through JTBD and First Principles",
     summary:
       "Why Uber Eats Group Order has low adoption despite real demand, analysed with Jobs To Be Done and first principles, with a phased strategy to make group ordering the default for shared meals.",
-    projectType: "unconfirmed",
+    projectType: "coursework",
     subject: "Uber Eats",
     logo: "/logos/uber-eats.png",
     documentUrl: "/case-studies/uber-eats-group-order.pdf",
@@ -628,7 +628,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "outfox-self-service-tariff-changes",
-    status: "draft",
+    status: "published",
     title: "Outfox Energy: Self-Service Tariff Changes",
     summary:
       "How self-service tariff changes were introduced in the Outfox Energy customer portal, as an alternative to contacting support during tariff price changes.",
@@ -671,7 +671,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "outfox-onboarding-meter-validation",
-    status: "draft",
+    status: "published",
     title: "Outfox Energy: Onboarding and Meter Validation",
     summary:
       "How frontend logic was introduced to automate meter-validation steps in the Outfox Energy sign-up journey.",

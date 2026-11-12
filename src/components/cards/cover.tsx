@@ -38,6 +38,8 @@ interface CoverProps {
   cover?: CoverImage;
   /** Looping thumbnail. Falls back to the image, then the neutral placeholder. */
   video?: string;
+  /** Still frame shown until the video plays, e.g. when Safari blocks autoplay. */
+  videoPoster?: string;
   /** Labelled illustrative interface, used when no genuine screenshot exists. */
   illustration?: CoverIllustrationName;
   icon: CoverIconName;
@@ -56,6 +58,7 @@ interface CoverProps {
 export function Cover({
   cover,
   video,
+  videoPoster,
   illustration,
   icon,
   label,
@@ -73,7 +76,7 @@ export function Cover({
         className={cn("relative aspect-[2/1] w-full overflow-hidden", className)}
         style={{ backgroundColor: "#141412" }}
       >
-        <CoverVideo src={video} />
+        <CoverVideo src={video} poster={videoPoster} />
       </div>
     );
   }

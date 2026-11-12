@@ -2,9 +2,10 @@
  * PHOTOGRAPHY & FILM
  * ------------------
  * Only add work that is genuinely yours. Nothing here is a placeholder, and
- * The homepage section links to the /photography page. That page shows 10
- * labelled "Coming soon" frames until you replace them with real photographs;
- * the homepage previews the first 3 photographs once you add them.
+ * The homepage section links to the /photography page and previews up to 3
+ * photographs marked `featured`. The page itself shows every photograph,
+ * using `span` to vary the width. Empty "Coming soon" frames appear only
+ * when the list is empty.
  *
  * HOW TO ADD YOUR 10 PHOTOGRAPHS (step by step)
  *
@@ -63,6 +64,13 @@ export interface CreativePhoto {
   /** Real pixel size of the file. */
   width: number;
   height: number;
+  /**
+   * How many columns the photograph uses on desktop, out of 12.
+   * Portraits sit in a narrower column. Wide frames use the full row.
+   */
+  span?: 4 | 5 | 6 | 7 | 12;
+  /** Shown in the homepage preview. At most three are used. */
+  featured?: boolean;
 }
 
 export type CreativeFilm =
@@ -76,10 +84,104 @@ export interface CreativeWork {
 }
 
 export const creativeWork: CreativeWork = {
-  // Add your photographs here (up to 10). See the template above.
-  photos: [],
+  photos: [
+    {
+      src: "/creative/westminster-bridge.png",
+      alt: "People crossing Westminster Bridge toward the Palace of Westminster and Elizabeth Tower, with a red double-decker bus on the road.",
+      width: 1012,
+      height: 669,
+      span: 12,
+      featured: true,
+    },
+    {
+      src: "/creative/sunset-wave.png",
+      alt: "A wave breaking into spray against an orange sunset.",
+      width: 766,
+      height: 915,
+      span: 7,
+    },
+    {
+      src: "/creative/old-city-street.jpg",
+      alt: "A woman in a black niqab and a boy in school uniform walking down a sunlit street toward an arched gateway.",
+      width: 743,
+      height: 983,
+      span: 5,
+    },
+    {
+      src: "/creative/forest-waterfall.png",
+      alt: "A person sitting beside a waterfall in a dense forest, photographed in black and white.",
+      width: 951,
+      height: 653,
+      span: 12,
+      featured: true,
+    },
+    {
+      src: "/creative/mist-canoe.png",
+      alt: "Two people in a narrow boat on a still, foggy lake, photographed in black and white.",
+      width: 801,
+      height: 961,
+      span: 4,
+    },
+    {
+      src: "/creative/harbour-boats.png",
+      alt: "Two fishing boats heading out under a pink evening sky.",
+      width: 591,
+      height: 695,
+      span: 4,
+    },
+    {
+      src: "/creative/two-swans.png",
+      alt: "Two swans on dark water in front of a black treeline.",
+      width: 915,
+      height: 548,
+      span: 4,
+    },
+    {
+      src: "/creative/long-exposure-shore.png",
+      alt: "Long-exposure waves washing over rocks along a shoreline, photographed in black and white.",
+      width: 1013,
+      height: 523,
+      span: 12,
+    },
+    {
+      src: "/creative/night-bridge.png",
+      alt: "A lit bridge reflected in a river under a deep blue dusk sky.",
+      width: 1019,
+      height: 619,
+      span: 7,
+    },
+    {
+      src: "/creative/lake-dive.png",
+      alt: "A person's legs above the water as they dive into a lake, with trees on the far shore.",
+      width: 1006,
+      height: 951,
+      span: 5,
+    },
+    {
+      src: "/creative/beach-silhouette.png",
+      alt: "A person standing on a beach, silhouetted against an orange and purple sunset.",
+      width: 1010,
+      height: 515,
+      span: 12,
+      featured: true,
+    },
+    {
+      src: "/creative/open-arms.png",
+      alt: "A person standing in the sea with arms open, framed by dark tree branches, photographed in black and white.",
+      width: 767,
+      height: 968,
+      span: 5,
+    },
+    {
+      src: "/creative/storm-birds.png",
+      alt: "A flock of birds against a dark, cloudy sky.",
+      width: 809,
+      height: 952,
+      span: 7,
+    },
+  ],
   film: undefined,
   portfolioUrl: undefined,
 };
 
-export const MAX_CREATIVE_PHOTOS = 10;
+export const MAX_CREATIVE_PHOTOS = 24;
